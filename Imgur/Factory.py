@@ -44,7 +44,7 @@ class Factory:
         req = urllib.request.Request(url)
         req.add_header("X-Mashape-Authorization", "")
         if data is not None:
-            req.add_data(urllib.parse.urlencode(data).encode('utf-8'))
+            req.data(urllib.parse.urlencode(data).encode('utf-8'))
         return req
 
     def buildCoreRequest(self, endpoint, data = None):
@@ -58,7 +58,7 @@ class Factory:
 
         req = urllib.request.Request(url)
         if data is not None:
-            req.add_data(urllib.parse.urlencode(data).encode('utf-8'))
+            req.data(urllib.parse.urlencode(data).encode('utf-8'))
         return req
     
     def buildDeleteRequest(self, endpoint, data = None):
