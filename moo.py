@@ -159,7 +159,7 @@ def comment(id):
     if destination == False:
         return False
 
-    method = 'DOGE'
+    method = 'DOGED'
 
     # Attempt to calculate amount
     amount = False
@@ -213,9 +213,9 @@ def tip(author, destination, method, amount, verify, exists, cid, iid):
             goat.sendfrom(author, target, float(amount))
 
             if exists == 0:
-                message = "Hi " + destination + ",\n\n" + author + " has just sent you a " + str(amount) + " DOGE tip. Yay!\n\nAs this is your first tip, we've created an account for you (linked to your username). If you're new to Dogecoin, take a look at the following sub-reddit for more information.\n\nhttp://www.reddit.com/r/dogeducation\n\nAny concerns? Email tips@moolah.ch"
+                message = "Hi " + destination + ",\n\n" + author + " has just sent you a " + str(amount) + " DOGED tip!\n\nAs this is your first tip, we've created an account for you (linked to your username). If you're new to DogecoinDark, take a look at the following webpage for more information.\n\nhttp://dogecoindark.net/imgur\n\n"
             else:
-                message = "Hi " + destination + ",\n\n" + author + " has just sent you a " + str(amount) + " DOGE tip. Yay!\n\nYou can find out your current balance by sending us a simple 'info' message."
+                message = "Hi " + destination + ",\n\n" + author + " has just sent you a " + str(amount) + " DOGED tip!\n\nYou can find out your current balance by sending us a simple 'info' message."
 
             auth = factory.buildOAuth(config['access_token'], None, time+3600)
             imgur = factory.buildAPI(auth)
@@ -227,7 +227,7 @@ def tip(author, destination, method, amount, verify, exists, cid, iid):
 
             balance = getBalance(author)
 
-            message = "You have just sent a " + str(amount) + " DOGE tip to " + destination + ". Your new balance is " + str(balance) + " DOGE."
+            message = "You have just sent a " + str(amount) + " DOGED tip to " + destination + ". Your new balance is " + str(balance) + " DOGED."
 
             auth = factory.buildOAuth(config['access_token'], None, time+3600)
             imgur = factory.buildAPI(auth)
@@ -237,7 +237,7 @@ def tip(author, destination, method, amount, verify, exists, cid, iid):
             })
             res = imgur.retrieve(req)
         else:
-            message = "Sorry, you don't have enough funds in your account for the " + str(amount) + " DOGE tip you just tried to send to " + destination + "."
+            message = "Sorry, you don't have enough funds in your account for the " + str(amount) + " DOGED tip you just tried to send to " + destination + "."
 
             auth = factory.buildOAuth(config['access_token'], None, time+3600)
             imgur = factory.buildAPI(auth)
@@ -316,7 +316,7 @@ def respond(action, who, payload):
         if h == True:
             balance = getBalance(who)
 
-            message = "Your current balances are as follows.\n\nDOGE: " + str(balance) + "\n\nYour deposit addresses are as follows.\n\nDOGE: " + getAddress(who)
+            message = "Your current balances are as follows.\n\nDOGED: " + str(balance) + "\n\nYour deposit addresses are as follows.\n\nDOGED: " + getAddress(who)
         else:
             message = "Sorry, you don't appear to have an account with us. Send `register` to create one."
     elif action == 'register':
@@ -331,7 +331,7 @@ def respond(action, who, payload):
 
             goat.sendfrom(who, payload, amount)
 
-            message = "You have withdrawn " + str(amount) + " DOGE to the following address.\n\n" + payload
+            message = "You have withdrawn " + str(amount) + " DOGED to the following address.\n\n" + payload
         else:
             message = "Sorry, you don't appear to have an account with us. Send `register` to create one."
 
@@ -352,7 +352,7 @@ def register(who):
     else:
         address = createAccount(who, 1)
 
-        return "Thank you for registering with Dogegive!\n\nYour deposit addresses are as follows, you can top up your account by sending funds to them.\n\nDOGE: " + str(address)
+        return "Thank you for registering with dogedTIP!\n\nYour deposit addresses are as follows, you can top up your account by sending funds to them.\n\nDOGED: " + str(address)
 
 def notifications():
     auth = factory.buildOAuth(config['access_token'], None, time+3600)
