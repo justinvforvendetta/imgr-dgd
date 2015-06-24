@@ -17,7 +17,7 @@ time = int(dt.time())
 
 client = MongoClient()
 db = client.mootip
-goat = AuthServiceProxy("http://user:pass@127.0.0.1:22555")
+goat = AuthServiceProxy("http://rpcuser:rpcpassword@127.0.0.1:20102")
 
 def loop():
     while True:
